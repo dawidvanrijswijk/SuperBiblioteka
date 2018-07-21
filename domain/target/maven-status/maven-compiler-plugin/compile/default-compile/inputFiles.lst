@@ -1,0 +1,10 @@
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/tool/UtilTools.java
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/exceptions/BorrowerNotFoundException.java
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/exceptions/AuthorNotFoundException.java
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/exceptions/BorrowNotFoundException.java
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/models/BooksType.java
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/models/Borrower.java
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/models/Author.java
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/exceptions/ItemNotFoundException.java
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/models/Borrow.java
+/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/domain/src/main/java/javakrk9/models/Book.java

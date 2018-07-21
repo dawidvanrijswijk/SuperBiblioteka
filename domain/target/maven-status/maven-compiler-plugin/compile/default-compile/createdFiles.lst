@@ -1,0 +1,10 @@
+javakrk9/models/Borrower.class
+javakrk9/models/BooksType.class
+javakrk9/models/Book.class
+javakrk9/exceptions/ItemNotFoundException.class
+javakrk9/tool/UtilTools.class
+javakrk9/models/Borrow.class
+javakrk9/exceptions/BorrowerNotFoundException.class
+javakrk9/exceptions/AuthorNotFoundException.class
+javakrk9/models/Author.class
+javakrk9/exceptions/BorrowNotFoundException.class
