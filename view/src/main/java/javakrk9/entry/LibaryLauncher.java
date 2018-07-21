@@ -2,8 +2,10 @@ package javakrk9.entry;
 
 import javakrk9.controllers.AuthorController;
 import javakrk9.controllers.BookController;
+import javakrk9.controllers.BorrowController;
 import javakrk9.controllers.BorrowerController;
 import javakrk9.models.BooksType;
+import javakrk9.models.Borrow;
 import javakrk9.models.Borrower;
 
 import java.io.IOException;
@@ -19,5 +21,8 @@ public class LibaryLauncher {
 
         BorrowerController borrowerController = new BorrowerController();
         borrowerController.save("Janek", "Kowal", "Nowa Wieś",505894336,"j.kowal@gmail.com");
+
+        BorrowController borrowController = new BorrowController();
+        borrowController.save(1, 2,2000/23/12);
     }
 }
