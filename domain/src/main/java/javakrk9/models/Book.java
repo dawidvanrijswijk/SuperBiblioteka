@@ -3,10 +3,12 @@ package javakrk9.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 
 public class Book {
     private long id;
@@ -20,23 +22,6 @@ public class Book {
     private String borrowerName;
     private String summary;
     private long authorId;
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", relase=" + relase +
-                ", isbn=" + isbn +
-                ", authorName='" + authorName + '\'' +
-                ", type=" + type +
-                ", pages=" + pages +
-                ", borrow=" + borrow +
-                ", borrowerName='" + borrowerName + '\'' +
-                ", summary='" + summary + '\'' +
-                ", authorId=" + authorId +
-                '}';
-    }
 
     public Book(String title, long relase, long isbn, String authorName, BooksType type, Integer pages, String borrowerName) {
         this.title = title;

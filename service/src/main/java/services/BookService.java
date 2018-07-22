@@ -15,8 +15,8 @@ public class BookService implements IBookService {
     public void create(Book book) throws IOException {
         BOOK_REPOSITORY.create(book);
     }
-    public List<Book> getAll() throws IOException
-    {
+
+    public List<Book> getAll() throws IOException {
         return BOOK_REPOSITORY.getAll();
     }
 }

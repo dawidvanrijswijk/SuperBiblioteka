@@ -9,5 +9,4 @@ public interface IBookService {
 
     void create(Book book) throws IOException;
     List<Book> getAll() throws IOException;
-
 }

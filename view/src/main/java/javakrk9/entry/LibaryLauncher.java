@@ -69,7 +69,7 @@ public class LibaryLauncher {
                     }
                     break;
 
-                case ADD_BOOK:
+                case ADD_BOOK: {
                     System.out.println("Enter book title");
                     String title = sc.nextLine();
                     System.out.println("Enter book release date");
@@ -83,36 +83,43 @@ public class LibaryLauncher {
                     BooksType bookType = BooksType.valueOf(sc.nextLine());
                     System.out.println("Enter book pages");
                     Integer pages = sc.nextInt();
+                    sc.nextLine();
                     System.out.println("Enter your name");
                     String yourName = sc.nextLine();
+                    System.out.println("You've successfully added a new book!\n");
                     try {
                         bookController.create(title, releaseDate, isbn, authorName, bookType, pages, yourName);
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }
-                    System.out.println("You've successfully added a new book!");
+                    }libaryEnum = LibaryEnum.INIT;
+                    break;
+                }
 
-                case PRINT_ALL_BOOKS:
-                    System.out.println("It's everything we got:");
+                case PRINT_ALL_BOOKS: {
+                    System.out.println("It's everything we got:\n");
                     try {
                         bookController.getAll();
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }
+                    }libaryEnum = LibaryEnum.INIT;
+                    break;
+                }
 
-                case ADD_AUTHOR:
+                case ADD_AUTHOR: {
                     System.out.print("Enter author name: ");
                     String name = sc.nextLine();
                     System.out.print("Enter author surname: ");
                     String surname = sc.nextLine();
                     System.out.print("Enter author birthplace: ");
                     String birthplace = sc.nextLine();
+                    System.out.println("You've successfully added a new author!\n");
                     try {
                         authorController.create(name, surname, birthplace);
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }
-                    System.out.println("You've successfully added a new author!");
+                    }libaryEnum = LibaryEnum.INIT;
+                    break;
+                }
             }
         } while (libaryEnum != LibaryEnum.EXIT);
     }

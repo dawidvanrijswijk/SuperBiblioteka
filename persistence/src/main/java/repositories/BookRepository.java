@@ -1,7 +1,6 @@
 package repositories;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javakrk9.models.Author;
 import javakrk9.models.Book;
 
 import java.io.File;
