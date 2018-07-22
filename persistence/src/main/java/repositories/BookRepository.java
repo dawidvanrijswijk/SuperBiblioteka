@@ -6,6 +6,7 @@ import javakrk9.models.Book;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BookRepository implements IBookRepository {
 
@@ -24,15 +25,22 @@ public class BookRepository implements IBookRepository {
 
     @Override
     public List<Book> getAll() throws IOException {
-        return OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
+        List<Book> books = OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
                 .class));
+
+        return books.stream().filter(b -> !b.isRemoved()).collect(Collectors.toList());
     }
 
     @Override
-    public void delete(Long authorID) throws IOException {
+    public void delete(Long bookId) throws IOException {
         List<Book> books =
                 OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
                         .class));
-        authorID.toString();
+        for (Book b: books) {
+            if (bookId.equals(b.getId()));
+            b.setRemoved(true);
+            break;
+        }
+        OBJECT_MAPPER.writeValue(new File(BOOKS_DB_PATH), books);
     }
 }

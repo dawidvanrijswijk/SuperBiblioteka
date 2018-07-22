@@ -19,6 +19,7 @@ public class Book {
     private BooksType type;
     private Integer pages;
     private boolean borrow;
+    private boolean removed;
     private String borrowerName;
     private String summary;
     private long authorId;

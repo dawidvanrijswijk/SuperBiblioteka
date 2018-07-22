@@ -9,7 +9,7 @@ import javakrk9.models.*;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class LibaryLauncher {
+public class LibraryLauncher {
 
     public static void main(String[] args) throws IOException {
 
@@ -87,6 +87,10 @@ public class LibaryLauncher {
                 break;
             }
 
+            case EDIT_BOOK: {
+
+            }
+
             case PRINT_ALL_BOOKS: {
                 System.out.println("It's everything we got:");
                 bookController.getAll().forEach(System.out::println);
@@ -105,6 +109,14 @@ public class LibaryLauncher {
                 authorController.create(name, surname, birthplace);
                 libraryEnum = LibraryEnum.MENU;
                 break;
+            }
+
+            case HIRE_BOOK: {
+
+            }
+
+            case RETURN_BOOK: {
+
             }
         } while (libraryEnum != LibraryEnum.EXIT);
     }
