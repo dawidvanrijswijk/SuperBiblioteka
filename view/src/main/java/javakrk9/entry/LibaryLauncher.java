@@ -4,12 +4,14 @@ import javakrk9.controllers.AuthorController;
 import javakrk9.controllers.BookController;
 import javakrk9.controllers.BorrowController;
 import javakrk9.controllers.BorrowerController;
+import javakrk9.exceptions.AuthorNotFoundException;
 import javakrk9.models.Author;
 import javakrk9.models.Book;
 import javakrk9.models.Borrow;
 import javakrk9.models.Borrower;
 
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -17,13 +19,6 @@ import java.util.Scanner;
 public class LibaryLauncher {
 
     public static void main(String[] args) {
-//        authorController.save("Adam", "Mickiewicz", "Zaosie");
-//
-//        bookController.save("The Shadow of The Wind", 2001,  97807538, "Carlos Ruiz Zafon", BooksType.ROMANCE,603,true,"Jacek", "super książka®",1);
-//
-//        borrowerController.save("Janek", "Kowal", "Nowa Wieś",505894336,"j.kowal@gmail.com");
-//
-//        borrowController.save(1, 2,2000/23/12);
 
         Scanner sc = new Scanner(System.in);
         LibaryEnum libaryEnum = LibaryEnum.INIT;
@@ -70,8 +65,21 @@ public class LibaryLauncher {
                     }
                     break;
 
-                case REMOVING:
-
+                case ADDING:
+                    System.out.print("Enter author ID: ");
+                    Long id = Long.valueOf(sc.next());
+                    System.out.print("Enter author name: ");
+                    String name = sc.next();
+                    System.out.print("Enter author surname: ");
+                    String surname = sc.next();
+                    System.out.print("Enter author birthplace: ");
+                    String birthplace = sc.next();
+                    try {
+                        authorController.update(id,name,surname,birthplace);
+                    } catch (IOException | AuthorNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("You've successfully added a new author!");
             }
         }while (book == null);
     }

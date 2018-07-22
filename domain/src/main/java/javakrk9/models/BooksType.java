@@ -1,7 +1,5 @@
 package javakrk9.models;
 
-
-
 public enum  BooksType {
 
     SINECE_FICTION("Science Fiction"),

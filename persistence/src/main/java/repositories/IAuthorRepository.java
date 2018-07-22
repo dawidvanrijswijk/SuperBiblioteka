@@ -17,5 +17,5 @@ public interface IAuthorRepository {
 
     Author get(Long authorID);
 
-    void update(Author author, Long authorID);
+    void update(Author author, Long authorID) throws IOException;
 }

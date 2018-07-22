@@ -12,14 +12,10 @@ public class AuthorRepository implements IAuthorRepository {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     private static final String AUTHOR_DB_PATH = "./persistence/src/main/resources/database/authors/authors.json";
 
+
+    @Override
     public void save(Author author) throws IOException {
-        List<Author> authors =
-                OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Author.class
-                ));
-        Long nextId = (long) (authors.size() + 1);
-        author.setId(nextId);
-        authors.add(author);
-        OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), authors);
+
     }
 
     @Override
@@ -43,7 +39,13 @@ public class AuthorRepository implements IAuthorRepository {
     }
 
     @Override
-    public void update(Author author, Long authorID) {
-
+    public void update(Author author, Long authorID) throws IOException {
+        List<Author> authors =
+                OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Author.class
+                ));
+        Long nextId = (long) (authors.size() + 1);
+        author.setId(nextId);
+        authors.add(author);
+        OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), authors);
     }
 }
