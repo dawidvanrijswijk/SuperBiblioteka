@@ -14,10 +14,4 @@ public class BookService implements IBookService {
     public void save(Book book) throws IOException {
         bookRepository.save(book);
     }
-
-//    @Override
-//    public void deleteBook(Long bookId) throws IOException, IllegalAccessException, ItemNotFoundException {
-//        Book book = Optional.ofNullable(bookRepository.findBook(bookId)).orElseThrow(() -> {
-//            Logger.er
-//        })
-    }
+}
