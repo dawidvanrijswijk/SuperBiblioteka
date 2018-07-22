@@ -18,4 +18,7 @@ public class BookController {
     public List<Book> getAll() throws IOException {
         return BOOK_SERVICE.getAll();
     }
+    public void delete(Long authorID) throws IOException {
+        BOOK_SERVICE.delete(authorID);
+    }
 }

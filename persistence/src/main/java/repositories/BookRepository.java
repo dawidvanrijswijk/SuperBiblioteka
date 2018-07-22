@@ -21,13 +21,18 @@ public class BookRepository implements IBookRepository {
         books.add(book);
         OBJECT_MAPPER.writeValue(new File(BOOKS_DB_PATH), books);
     }
+
     @Override
-    public List<Book> getAll() {
-        try {
-            return OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
-                            .class));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }return null;
+    public List<Book> getAll() throws IOException {
+        return OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
+                .class));
+    }
+
+    @Override
+    public void delete(Long authorID) throws IOException {
+        List<Book> books =
+                OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
+                        .class));
+        authorID.toString();
     }
 }

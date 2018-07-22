@@ -8,6 +8,7 @@ import java.util.List;
 public interface IBookRepository {
     void create (Book book) throws IOException;
 
-    List<Book> getAll();
+    List<Book> getAll() throws IOException;
 
+    void delete(Long authorID) throws IOException;
 }

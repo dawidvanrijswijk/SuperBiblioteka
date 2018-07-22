@@ -1,7 +1,7 @@
 package javakrk9.entry;
 
-public enum  LibaryEnum {
-    INIT,
+public enum LibraryEnum {
+    MENU,
 
     ADD_BOOK,
     REMOVE_BOOK,

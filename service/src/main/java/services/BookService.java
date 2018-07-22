@@ -19,4 +19,7 @@ public class BookService implements IBookService {
     public List<Book> getAll() throws IOException {
         return BOOK_REPOSITORY.getAll();
     }
+    public void delete(Long authorID) throws IOException {
+        BOOK_REPOSITORY.delete(authorID);
+    }
 }
