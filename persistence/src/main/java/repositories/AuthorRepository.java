@@ -6,6 +6,7 @@ import javakrk9.models.Author;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AuthorRepository implements IAuthorRepository {
 
@@ -35,8 +36,10 @@ public class AuthorRepository implements IAuthorRepository {
     }
 
     @Override
-    public List<Author> getAll() {
-        return null;
+    public List<Author> getAll() throws IOException {
+        List<Author> authors = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Author
+                .class));
+        return authors;
     }
 
     @Override

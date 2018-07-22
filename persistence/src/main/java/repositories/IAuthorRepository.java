@@ -13,7 +13,7 @@ public interface IAuthorRepository {
 
     void delete(Long authorID);
 
-    List<Author> getAll();
+    List<Author> getAll() throws IOException;
 
     Author get(Long authorID);
 

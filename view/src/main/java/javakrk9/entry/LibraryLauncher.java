@@ -59,18 +59,20 @@ public class LibraryLauncher {
                 break;
 
             case ADD_BOOK: {
-                System.out.println("Enter book title");
+                System.out.println("List of our actual autors: ");
+                System.out.println(authorController.getAll());
+                System.out.println("Enter book title: ");
                 String title = sc.nextLine();
-                System.out.println("Enter book release date");
+                System.out.println("Enter book release date: ");
                 Integer releaseDate = sc.nextInt();
-                System.out.println("Enter book ISBN number");
+                System.out.println("Enter book ISBN number: ");
                 Integer isbn = sc.nextInt();
                 sc.nextLine();
-                System.out.println("Enter book author");
+                System.out.println("Enter book author: ");
                 String authorName = sc.nextLine();
-                System.out.println("Enter book type");
+                System.out.println("Enter book type: ");
                 BooksType bookType = BooksType.valueOf(sc.nextLine());
-                System.out.println("Enter book pages");
+                System.out.println("Enter book pages: ");
                 Integer pages = sc.nextInt();
                 sc.nextLine();
                 System.out.println("You've successfully added a new book!");
@@ -80,9 +82,10 @@ public class LibraryLauncher {
             }
 
             case REMOVE_BOOK: {
-                System.out.println("Enter ID of the book you wanna remove");
+                System.out.println("Enter ID of the book you wanna remove: ");
                 int id = sc.nextInt();
                 bookController.delete((long) id);
+                System.out.println("You've successfully removed a book!");
                 libraryEnum = LibraryEnum.MENU;
                 break;
             }

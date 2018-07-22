@@ -3,10 +3,12 @@ package javakrk9.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
+
 
 public class Author {
     private long id;
@@ -18,5 +20,10 @@ public class Author {
         this.firstName = firstName;
         this.lastName = lastName;
         this.placeOfBirth = placeOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
     }
 }
