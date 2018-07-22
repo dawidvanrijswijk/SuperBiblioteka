@@ -10,19 +10,10 @@ public class BookController {
 
     private IBookService bookService = new BookService();
 
-    public void save(String title, long relase, long isbn, String authorName, BooksType type, Integer pages, boolean borrow, String borrowerName, String summary, long authorId) throws IOException {
-        Book book = new Book();
-        book.setTitle(title);
-        book.setRelase(relase);
-        book.setIsbn(isbn);
-        book.setAuthorName(authorName);
-        book.setType(type);
-        book.setPages(pages);
-        book.setBorrow(borrow);
-        book.setBorrowerName(borrowerName);
-        book.setSummary(summary);
-        book.setAuthorId(pages);
-        bookService.save(book);
+    private static final IBookService BOOK_SERVICE = new BookService();
 
+    public void create(String title, long relase, long isbn, String authorName, BooksType type, Integer pages, String borrowerName) throws IOException {
+        Book book = new Book(title, relase, isbn, authorName, type, pages, borrowerName);
+        BOOK_SERVICE.create(book);
     }
 }

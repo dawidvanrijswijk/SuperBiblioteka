@@ -11,7 +11,7 @@ public class BookService implements IBookService {
     private IBookRepository bookRepository = new BookRepository();
 
     @Override
-    public void save(Book book) throws IOException {
-        bookRepository.save(book);
+    public void create (Book book) throws IOException {
+        bookRepository.create(book);
     }
 }
