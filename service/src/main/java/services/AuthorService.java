@@ -30,8 +30,8 @@ public class AuthorService implements IAuthorService {
         return AUTHOR_REPOSITORY.get(authorID);
     }
 
-    public void update(Author author, Long authorID) throws IOException, AuthorNotFoundException {
-        AUTHOR_REPOSITORY.update(author, authorID);
+    public void update(Author author) throws IOException, AuthorNotFoundException {
+        AUTHOR_REPOSITORY.update(author);
     }
 
     @Override

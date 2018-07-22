@@ -12,6 +12,6 @@ public interface IAuthorService {
     void delete(Long authorID) throws IOException;
     List<Author> getAll() throws IOException;
     Author get(Long authorID) throws IOException, AuthorNotFoundException;
-    void update(Author author, Long authorID) throws IOException, AuthorNotFoundException;
+    void update(Author author) throws IOException, AuthorNotFoundException;
     void save(Author author) throws IOException;
 }

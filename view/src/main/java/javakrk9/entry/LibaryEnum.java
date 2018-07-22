@@ -3,10 +3,13 @@ package javakrk9.entry;
 public enum  LibaryEnum {
     INIT,
 
-    ADDING,
-    REMOVING,
-    HIRING,
-    RETURNING,
+    ADD_BOOK,
+    REMOVE_BOOK,
+    EDIT_BOOK,
+    PRINT_ALL_BOOKS,
+    ADD_AUTHOR,
+    HIRE_BOOK,
+    RETURN_BOOK,
 
     EXIT;
 }

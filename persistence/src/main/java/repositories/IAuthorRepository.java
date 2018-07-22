@@ -9,7 +9,7 @@ public interface IAuthorRepository {
 
     void save(Author author) throws IOException;
 
-    void create(Author author);
+    void create(Author author) throws IOException;
 
     void delete(Long authorID);
 
@@ -17,5 +17,5 @@ public interface IAuthorRepository {
 
     Author get(Long authorID);
 
-    void update(Author author, Long authorID) throws IOException;
+    void update(Author author) throws IOException;
 }

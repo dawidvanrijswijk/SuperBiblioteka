@@ -11,7 +11,6 @@ import javakrk9.models.Borrow;
 import javakrk9.models.Borrower;
 
 import java.io.IOException;
-import java.net.Inet4Address;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -42,18 +41,28 @@ public class LibaryLauncher {
                 case INIT:
                     OtherViews.initView();
                     Integer decision = sc.nextInt();
+                    sc.nextLine();
                     switch (decision) {
                         case 1:
-                            libaryEnum = LibaryEnum.ADDING;
+                            libaryEnum = LibaryEnum.ADD_BOOK;
                             break;
                         case 2:
-                            libaryEnum = LibaryEnum.REMOVING;
+                            libaryEnum = LibaryEnum.REMOVE_BOOK;
                             break;
                         case 3:
-                            libaryEnum = LibaryEnum.HIRING;
+                            libaryEnum = LibaryEnum.EDIT_BOOK;
                             break;
                         case 4:
-                            libaryEnum = LibaryEnum.RETURNING;
+                            libaryEnum = LibaryEnum.PRINT_ALL_BOOKS;
+                            break;
+                        case 5:
+                            libaryEnum = LibaryEnum.ADD_AUTHOR;
+                            break;
+                        case 6:
+                            libaryEnum = LibaryEnum.HIRE_BOOK;
+                            break;
+                        case 7:
+                            libaryEnum = LibaryEnum.RETURN_BOOK;
                             break;
                         case 0:
                             libaryEnum = LibaryEnum.EXIT;
@@ -65,18 +74,16 @@ public class LibaryLauncher {
                     }
                     break;
 
-                case ADDING:
-                    System.out.print("Enter author ID: ");
-                    Long id = Long.valueOf(sc.next());
+                case ADD_AUTHOR:
                     System.out.print("Enter author name: ");
-                    String name = sc.next();
+                    String name = sc.nextLine();
                     System.out.print("Enter author surname: ");
-                    String surname = sc.next();
+                    String surname = sc.nextLine();
                     System.out.print("Enter author birthplace: ");
-                    String birthplace = sc.next();
+                    String birthplace = sc.nextLine();
                     try {
-                        authorController.update(id,name,surname,birthplace);
-                    } catch (IOException | AuthorNotFoundException e) {
+                        authorController.create(name,surname,birthplace);
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                     System.out.println("You've successfully added a new author!");

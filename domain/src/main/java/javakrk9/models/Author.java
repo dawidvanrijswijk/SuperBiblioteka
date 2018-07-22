@@ -1,16 +1,22 @@
 package javakrk9.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
+@NoArgsConstructor
 
 public class Author {
     private long id;
     private String firstName;
     private String lastName;
     private String placeOfBirth;
+
+    public Author(String firstName, String lastName, String placeOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.placeOfBirth = placeOfBirth;
+    }
 }

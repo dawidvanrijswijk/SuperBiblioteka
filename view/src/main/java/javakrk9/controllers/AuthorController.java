@@ -12,8 +12,8 @@ public class AuthorController {
 
     private static final IAuthorService AUTHOR_SERVICE = new AuthorService();
 
-    public void create(Long id, String firstName, String lastName, String placeOfBirth) throws IOException {
-        Author author = new Author(id,firstName, lastName, placeOfBirth);
+    public void create(String firstName, String lastName, String placeOfBirth) throws IOException {
+        Author author = new Author(firstName, lastName, placeOfBirth);
         AUTHOR_SERVICE.create(author);
     }
 
@@ -29,8 +29,8 @@ public class AuthorController {
         return AUTHOR_SERVICE.get(authorID);
     }
 
-    public void update(Long authorID, String name, String surname, String birthPlace) throws IOException, AuthorNotFoundException {
-        Author author = new Author(authorID,name, surname, birthPlace);
-        AUTHOR_SERVICE.update(author, authorID);
+    public void update(String name, String surname, String birthPlace) throws IOException, AuthorNotFoundException {
+        Author author = new Author(name, surname, birthPlace);
+        AUTHOR_SERVICE.update(author);
     }
 }
