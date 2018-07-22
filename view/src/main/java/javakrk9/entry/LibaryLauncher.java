@@ -10,6 +10,8 @@ import javakrk9.models.Borrow;
 import javakrk9.models.Borrower;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class LibaryLauncher {
@@ -29,7 +31,10 @@ public class LibaryLauncher {
         BookController bookController = new BookController();
         BorrowerController borrowerController = new BorrowerController();
         BorrowController borrowController = new BorrowController();
-
+        Map<String, Author> authorHashMap = new HashMap<>();
+        Map<String, Book> bookMap;
+        Map<String, Borrow> borrowMap;
+        Map<String, Borrower> borrowerMap;
 
         Author author = null;
         Book book = null;
@@ -39,22 +44,23 @@ public class LibaryLauncher {
         OtherViews.welcomeView();
         do {
             switch (libaryEnum) {
-                String decision = sc.nextLine();
                 case INIT:
+                    OtherViews.initView();
+                    Integer decision = sc.nextInt();
                     switch (decision) {
-                        case ("1"):
+                        case 1:
                             libaryEnum = LibaryEnum.ADDING;
                             break;
-                        case ("2"):
+                        case 2:
                             libaryEnum = LibaryEnum.REMOVING;
                             break;
-                        case ("3"):
+                        case 3:
                             libaryEnum = LibaryEnum.HIRING;
                             break;
-                        case ("4"):
+                        case 4:
                             libaryEnum = LibaryEnum.RETURNING;
                             break;
-                        case ("0"):
+                        case 0:
                             libaryEnum = LibaryEnum.EXIT;
                             break;
                         default:
@@ -66,8 +72,7 @@ public class LibaryLauncher {
 
                 case REMOVING:
 
-
             }
-        }
+        }while (book == null);
     }
 }

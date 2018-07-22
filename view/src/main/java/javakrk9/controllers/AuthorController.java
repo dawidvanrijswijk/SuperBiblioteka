@@ -1,20 +1,36 @@
 package javakrk9.controllers;
 
+import javakrk9.exceptions.AuthorNotFoundException;
 import javakrk9.models.Author;
 import services.AuthorService;
 import services.IAuthorService;
 
 import java.io.IOException;
+import java.util.List;
 
 public class AuthorController {
 
-    private IAuthorService authorService = new AuthorService();
+    private static final IAuthorService AUTHOR_SERVICE = new AuthorService();
 
-    public void save(String firstName, String lastName, String placeOfBirth) throws IOException {
-        Author author = new Author();
-        author.setFirstName(firstName);
-        author.setLastName(lastName);
-        author.setPlaceOfBirth(placeOfBirth);
-        authorService.save(author);
+    public void create(Long id, String firstName, String lastName, String placeOfBirth) throws IOException {
+        Author author = new Author(id,firstName, lastName, placeOfBirth);
+        AUTHOR_SERVICE.create(author);
+    }
+
+    public void delete(Long authorID) throws IOException {
+        AUTHOR_SERVICE.delete(authorID);
+    }
+
+    public List<Author> getAll() throws IOException {
+        return AUTHOR_SERVICE.getAll();
+    }
+
+    public Author get(Long authorID) throws IOException, AuthorNotFoundException {
+        return AUTHOR_SERVICE.get(authorID);
+    }
+
+    public void update(Long authorID, String name, String surname, String birthPlace) throws IOException, AuthorNotFoundException {
+        Author author = new Author(authorID,name, surname, birthPlace);
+        AUTHOR_SERVICE.update(author, authorID);
     }
 }
