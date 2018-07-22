@@ -11,8 +11,8 @@ public class BookController {
 
     private static final IBookService BOOK_SERVICE = new BookService();
 
-    public void create(String title, long release, long isbn, String authorName, BooksType type, Integer pages, String borrowerName) throws IOException {
-        Book book = new Book(title, release, isbn, authorName, type, pages, borrowerName);
+    public void create(String title, long release, long isbn, String authorName, BooksType type, Integer pages) throws IOException {
+        Book book = new Book(title, release, isbn, authorName, type, pages);
         BOOK_SERVICE.create(book);
     }
     public List<Book> getAll() throws IOException {

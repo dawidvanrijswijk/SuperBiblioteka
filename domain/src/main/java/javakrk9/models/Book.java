@@ -23,14 +23,12 @@ public class Book {
     private String summary;
     private long authorId;
 
-    public Book(String title, long relase, long isbn, String authorName, BooksType type, Integer pages, String borrowerName) {
+    public Book(String title, long release, long isbn, String authorName, BooksType type, Integer pages) {
         this.title = title;
-        this.relase = relase;
+        this.relase = release;
         this.isbn = isbn;
         this.authorName = authorName;
         this.type = type;
         this.pages = pages;
-        this.borrowerName = borrowerName;
-
     }
 }

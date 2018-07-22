@@ -7,8 +7,6 @@ import javakrk9.controllers.BorrowerController;
 import javakrk9.models.*;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class LibaryLauncher {
@@ -21,14 +19,6 @@ public class LibaryLauncher {
         BookController bookController = new BookController();
         BorrowerController borrowerController = new BorrowerController();
         BorrowController borrowController = new BorrowController();
-        Map<String, Author> authorHashMap = new HashMap<>();
-        Map<String, Book> bookMap;
-        Map<String, Borrow> borrowMap;
-        Map<String, Borrower> borrowerMap;
-
-        Book book = null;
-        Borrower borrower = null;
-        Borrow borrow = null;
 
         OtherViews.welcomeView();
         do {
@@ -84,11 +74,9 @@ public class LibaryLauncher {
                     System.out.println("Enter book pages");
                     Integer pages = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Enter your name");
-                    String yourName = sc.nextLine();
-                    System.out.println("You've successfully added a new book!\n");
+                    System.out.println("You've successfully added a new book!");
                     try {
-                        bookController.create(title, releaseDate, isbn, authorName, bookType, pages, yourName);
+                        bookController.create(title, releaseDate, isbn, authorName, bookType, pages);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }libaryEnum = LibaryEnum.INIT;
@@ -96,9 +84,9 @@ public class LibaryLauncher {
                 }
 
                 case PRINT_ALL_BOOKS: {
-                    System.out.println("It's everything we got:\n");
+                    System.out.println("It's everything we got:");
                     try {
-                        bookController.getAll();
+                        bookController.getAll().forEach(System.out::println);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }libaryEnum = LibaryEnum.INIT;
@@ -112,7 +100,7 @@ public class LibaryLauncher {
                     String surname = sc.nextLine();
                     System.out.print("Enter author birthplace: ");
                     String birthplace = sc.nextLine();
-                    System.out.println("You've successfully added a new author!\n");
+                    System.out.println("You've successfully added a new author!");
                     try {
                         authorController.create(name, surname, birthplace);
                     } catch (IOException e) {

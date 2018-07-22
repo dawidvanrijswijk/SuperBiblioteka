@@ -23,6 +23,11 @@ public class BookRepository implements IBookRepository {
     }
     @Override
     public List<Book> getAll() {
-        return null;
+        try {
+            return OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
+                            .class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }return null;
     }
 }
