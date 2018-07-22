@@ -86,7 +86,16 @@ public class LibaryLauncher {
                     System.out.println("Enter your name");
                     String yourName = sc.nextLine();
                     try {
-                        bookController.create(title,releaseDate,isbn,authorName,bookType,pages,yourName);
+                        bookController.create(title, releaseDate, isbn, authorName, bookType, pages, yourName);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("You've successfully added a new book!");
+
+                case PRINT_ALL_BOOKS:
+                    System.out.println("It's everything we got:");
+                    try {
+                        bookController.getAll();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

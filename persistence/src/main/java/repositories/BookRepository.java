@@ -1,6 +1,7 @@
 package repositories;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javakrk9.models.Author;
 import javakrk9.models.Book;
 
 import java.io.File;
@@ -20,5 +21,9 @@ public class BookRepository implements IBookRepository {
         book.setId(nextId);
         books.add(book);
         OBJECT_MAPPER.writeValue(new File(BOOKS_DB_PATH), books);
+    }
+    @Override
+    public List<Book> getAll() {
+        return null;
     }
 }

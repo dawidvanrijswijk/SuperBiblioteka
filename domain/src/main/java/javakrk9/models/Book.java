@@ -21,6 +21,23 @@ public class Book {
     private String summary;
     private long authorId;
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", relase=" + relase +
+                ", isbn=" + isbn +
+                ", authorName='" + authorName + '\'' +
+                ", type=" + type +
+                ", pages=" + pages +
+                ", borrow=" + borrow +
+                ", borrowerName='" + borrowerName + '\'' +
+                ", summary='" + summary + '\'' +
+                ", authorId=" + authorId +
+                '}';
+    }
+
     public Book(String title, long relase, long isbn, String authorName, BooksType type, Integer pages, String borrowerName) {
         this.title = title;
         this.relase = relase;
@@ -29,5 +46,6 @@ public class Book {
         this.type = type;
         this.pages = pages;
         this.borrowerName = borrowerName;
+
     }
 }

@@ -5,6 +5,7 @@ import javakrk9.models.BooksType;
 import services.*;
 
 import java.io.IOException;
+import java.util.List;
 
 public class BookController {
 
@@ -15,5 +16,8 @@ public class BookController {
     public void create(String title, long relase, long isbn, String authorName, BooksType type, Integer pages, String borrowerName) throws IOException {
         Book book = new Book(title, relase, isbn, authorName, type, pages, borrowerName);
         BOOK_SERVICE.create(book);
+    }
+    public List<Book> getAll() throws IOException {
+        return BOOK_SERVICE.getAll();
     }
 }
