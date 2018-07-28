@@ -16,7 +16,7 @@ public class BorrowRepository implements IBorrowRepository {
 
     public BorrowRepository() {
         OBJECT_MAPPER.registerModule(new JavaTimeModule());
-        OBJECT_MAPPER.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
+        OBJECT_MAPPER.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     }
 
     public void save(Borrow borrow) throws IOException {

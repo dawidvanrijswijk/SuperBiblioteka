@@ -9,9 +9,8 @@ import java.util.List;
 public interface IAuthorService {
 
     void create(Author author) throws IOException;
-    void delete(Long authorID) throws IOException;
+    void delete(Long authorID) throws IOException, AuthorNotFoundException;
     List<Author> getAll() throws IOException;
     Author get(Long authorID) throws IOException, AuthorNotFoundException;
-    void update(Author author) throws IOException, AuthorNotFoundException;
-    void save(Author author) throws IOException;
+    void update(Author author, long id) throws IOException, AuthorNotFoundException;
 }

@@ -4,6 +4,7 @@ import javakrk9.controllers.AuthorController;
 import javakrk9.controllers.BookController;
 import javakrk9.controllers.BorrowController;
 import javakrk9.controllers.BorrowerController;
+import javakrk9.exceptions.ItemNotFoundException;
 import javakrk9.models.*;
 
 import java.io.IOException;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 public class LibraryLauncher {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ItemNotFoundException {
 
         Scanner sc = new Scanner(System.in);
         LibraryEnum libraryEnum = LibraryEnum.MENU;
@@ -59,7 +60,7 @@ public class LibraryLauncher {
                 break;
 
             case ADD_BOOK: {
-                System.out.println("List of our actual autors: ");
+                System.out.println("List of our actual authors: ");
                 System.out.println(authorController.getAll());
                 System.out.println("Enter book title: ");
                 String title = sc.nextLine();
@@ -91,7 +92,23 @@ public class LibraryLauncher {
             }
 
             case EDIT_BOOK: {
-
+                System.out.println("Enter ID of the book you wanna edit: ");
+                int id = sc.nextInt();
+                System.out.println("Enter book title: ");
+                String title = sc.nextLine();
+                System.out.println("Enter book release date: ");
+                Integer releaseDate = sc.nextInt();
+                System.out.println("Enter book ISBN number: ");
+                Integer isbn = sc.nextInt();
+                sc.nextLine();
+                System.out.println("Enter book author: ");
+                String authorName = sc.nextLine();
+                System.out.println("Enter book type: ");
+                BooksType bookType = BooksType.valueOf(sc.nextLine());
+                System.out.println("Enter book pages: ");
+                Integer pages = sc.nextInt();
+                sc.nextLine();
+                bookController.update(id,title,releaseDate,isbn,authorName,bookType,pages);
             }
 
             case PRINT_ALL_BOOKS: {

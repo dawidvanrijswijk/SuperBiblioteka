@@ -1,5 +1,6 @@
 package services;
 
+import javakrk9.exceptions.ItemNotFoundException;
 import javakrk9.models.Book;
 import repositories.BookRepository;
 import repositories.IBookRepository;
@@ -19,7 +20,14 @@ public class BookService implements IBookService {
     public List<Book> getAll() throws IOException {
         return BOOK_REPOSITORY.getAll();
     }
-    public void delete(Long authorID) throws IOException {
-        BOOK_REPOSITORY.delete(authorID);
+    public void delete(Long bookId) throws IOException {
+        try {
+            BOOK_REPOSITORY.delete(bookId);
+        } catch (ItemNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    public void update(Book book, long id) throws IOException, ItemNotFoundException {
+        BOOK_REPOSITORY.update(book, id);
     }
 }

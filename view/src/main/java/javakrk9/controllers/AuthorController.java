@@ -18,7 +18,11 @@ public class AuthorController {
     }
 
     public void delete(Long authorID) throws IOException {
-        AUTHOR_SERVICE.delete(authorID);
+        try {
+            AUTHOR_SERVICE.delete(authorID);
+        } catch (AuthorNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Author> getAll() throws IOException {
@@ -31,6 +35,6 @@ public class AuthorController {
 
     public void update(String name, String surname, String birthPlace) throws IOException, AuthorNotFoundException {
         Author author = new Author(name, surname, birthPlace);
-        AUTHOR_SERVICE.update(author);
+        AUTHOR_SERVICE.update(author, author.getId());
     }
 }

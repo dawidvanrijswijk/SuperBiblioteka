@@ -7,4 +7,8 @@ public class AuthorNotFoundException extends Exception {
         super(message);
 
     }
+
+    public AuthorNotFoundException(String message) {
+        super(message);
+    }
 }

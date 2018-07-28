@@ -17,8 +17,8 @@ public class AuthorService implements IAuthorService {
         AUTHOR_REPOSITORY.create(author);
     }
 
-    public void delete(Long authorID) throws IOException {
-        AUTHOR_REPOSITORY.delete(authorID);
+    public void delete(Long id) throws IOException, AuthorNotFoundException {
+        AUTHOR_REPOSITORY.delete(id);
     }
 
     public List<Author> getAll() throws IOException
@@ -30,12 +30,8 @@ public class AuthorService implements IAuthorService {
         return AUTHOR_REPOSITORY.get(authorID);
     }
 
-    public void update(Author author) throws IOException, AuthorNotFoundException {
-        AUTHOR_REPOSITORY.update(author);
+    public void update(Author author, long id) throws IOException, AuthorNotFoundException {
+        AUTHOR_REPOSITORY.update(author, id);
     }
 
-    @Override
-    public void save(Author author) throws IOException {
-
-    }
 }
