@@ -94,7 +94,6 @@ public class LibraryLauncher {
             case EDIT_BOOK: {
                 System.out.println("It's everything we got:");
                 bookController.getAll().forEach(b -> System.out.println(b.getId() + " - " + b.getTitle()));
-
                 System.out.println("Enter ID of the book you wanna edit: ");
                 Long id = (long) sc.nextInt();
                 sc.nextLine();
@@ -113,6 +112,7 @@ public class LibraryLauncher {
                 Integer pages = sc.nextInt();
                 sc.nextLine();
                 bookController.update(id,title,releaseDate,isbn,authorName,bookType,pages);
+                break;
             }
 
             case PRINT_ALL_BOOKS: {
