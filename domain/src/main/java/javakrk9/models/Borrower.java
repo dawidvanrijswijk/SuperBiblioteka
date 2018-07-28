@@ -7,10 +7,15 @@ import lombok.Setter;
 @Setter
 
 public class Borrower {
-    private long id;
+    private Long id;
     private String name;
     private String surname;
-    private String adres;
-    private int phoneNumber;
+    private String address;
+    private String phoneNumber;
     private String email;
+    private boolean deleted;
+
+    public Borrower() {
+        this.deleted = false;
+    }
 }

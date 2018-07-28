@@ -11,6 +11,6 @@ public enum LibraryEnum {
     HIRE_BOOK,
     RETURN_BOOK,
 
-    EXIT;
+    EXIT
 }
 
