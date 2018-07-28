@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class BorrowRepository implements IBorrowRepository {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-    private static final String BORROW_DB_PATH = "./persistence/src/main/resources/database/borrows.json";
+    private static final String BORROW_DB_PATH = "./persistence/src/main/resources/database/borrows/borrows.json";
 
     public BorrowRepository() {
         OBJECT_MAPPER.registerModule(new JavaTimeModule());
@@ -34,6 +34,7 @@ public class BorrowRepository implements IBorrowRepository {
             borrow.setBorrowId(1L);
         }
         borrows.add(borrow);
+        borrows.stream().findFirst().ifPresent(b -> b.setReturned(true));
         OBJECT_MAPPER.writeValue(new File(BORROW_DB_PATH), borrows);
     }
 

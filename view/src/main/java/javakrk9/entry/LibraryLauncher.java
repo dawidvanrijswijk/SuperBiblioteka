@@ -8,6 +8,7 @@ import javakrk9.exceptions.ItemNotFoundException;
 import javakrk9.models.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class LibraryLauncher {
@@ -111,7 +112,8 @@ public class LibraryLauncher {
                 System.out.println("Enter book pages: ");
                 Integer pages = sc.nextInt();
                 sc.nextLine();
-                bookController.update(id,title,releaseDate,isbn,authorName,bookType,pages);
+                bookController.update(id, title, releaseDate, isbn, authorName, bookType, pages);
+                libraryEnum = LibraryEnum.MENU;
                 break;
             }
 
@@ -136,11 +138,22 @@ public class LibraryLauncher {
             }
 
             case HIRE_BOOK: {
-
+                System.out.println("All our readers: ");
+                borrowController.getAll().forEach(System.out::println);
+                System.out.println("It's everything we've got:");
+                bookController.getAll().forEach(System.out::println);
+                System.out.println("Type in Id of the book you wanna borrow");
+                Long borrowId = (long) sc.nextInt();
+                sc.nextLine();
+                System.out.println("Type in Id of you as a borrower");
+                Long borrowerId = (long) sc.nextInt();
+                sc.nextLine();
+                borrowController.create(borrowId, borrowerId, LocalDate.now());
+                libraryEnum = LibraryEnum.MENU;
+                break;
             }
 
             case RETURN_BOOK: {
-
             }
         } while (libraryEnum != LibraryEnum.EXIT);
     }
