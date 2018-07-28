@@ -6,6 +6,7 @@ import javakrk9.models.Book;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,8 +36,9 @@ public class BookRepository implements IBookRepository {
     }
 
     @Override
-    public Book get(Long bookId) throws IOException, ItemNotFoundException {
-        return null;
+    public Book get(Long bookId) throws IOException {
+        List<Book> books = getAll();
+        return books.stream().filter(b -> b.getId().equals(bookId)).findFirst().orElse(null);
     }
 
     @Override
@@ -66,11 +68,7 @@ public class BookRepository implements IBookRepository {
         List<Book> books =
                 OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
                         .class));
-        for (Book b: books) {
-            if (bookId.equals(b.getId()));
-            b.setRemoved(true);
-            break;
-        }
+        books.stream().findFirst().ifPresent(b -> b.setRemoved(true));
         OBJECT_MAPPER.writeValue(new File(BOOKS_DB_PATH), books);
     }
 }

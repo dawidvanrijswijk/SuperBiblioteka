@@ -20,6 +20,7 @@ public class BookService implements IBookService {
     public List<Book> getAll() throws IOException {
         return BOOK_REPOSITORY.getAll();
     }
+
     public void delete(Long bookId) throws IOException {
         try {
             BOOK_REPOSITORY.delete(bookId);
@@ -27,7 +28,13 @@ public class BookService implements IBookService {
             e.printStackTrace();
         }
     }
-    public void update(Book book, long id) throws IOException, ItemNotFoundException {
+
+    public void update(Book book, long id) throws IOException, ItemNotFoundException, NullPointerException {
         BOOK_REPOSITORY.update(book, id);
+    }
+
+    @Override
+    public Book get(Long id) throws NullPointerException, IOException {
+        return BOOK_REPOSITORY.get(id);
     }
 }

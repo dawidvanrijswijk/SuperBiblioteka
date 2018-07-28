@@ -13,4 +13,5 @@ public interface IBookService {
     void delete(Long authorID) throws IOException;
     void update(Book author, long id) throws IOException, ItemNotFoundException;
 
+    Book get(Long id) throws IOException;
 }

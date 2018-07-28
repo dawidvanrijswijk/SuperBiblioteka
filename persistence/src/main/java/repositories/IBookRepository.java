@@ -13,7 +13,7 @@ public interface IBookRepository {
 
     List<Book> getAll() throws IOException;
 
-    Book get(Long bookId) throws IOException, ItemNotFoundException;
+    Book get(Long bookId) throws IOException;
 
     void update(Book book, Long bookId) throws IOException, ItemNotFoundException;
 }

@@ -9,10 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class Book {
-    private long id;
+    private Long id;
     private String title;
-    private long release;
-    private long isbn;
+    private Long release;
+    private Long isbn;
     private String authorName;
     private BooksType type;
     private Integer pages;
@@ -20,7 +20,7 @@ public class Book {
     private boolean removed;
     private String borrowerName;
     private String summary;
-    private long authorId;
+    private Long authorId;
 
     public Book(String title, long release, long isbn, String authorName, BooksType type, Integer pages) {
         this.title = title;

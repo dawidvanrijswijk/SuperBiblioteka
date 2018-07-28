@@ -7,7 +7,9 @@ import services.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
+@SuppressWarnings("EqualsBetweenInconvertibleTypes")
 public class BookController {
 
     private static final IBookService BOOK_SERVICE = new BookService();
@@ -25,8 +27,16 @@ public class BookController {
         BOOK_SERVICE.delete(bookId);
     }
 
-    public void update(long id, String title, long release, long isbn, String authorName, BooksType type, Integer pages) throws IOException, ItemNotFoundException {
-        Book book = new Book(id, title, release, isbn, authorName, type, pages);
+    public void update(Long id, String title, Integer release, Integer isbn, String authorName, BooksType type, Integer pages) throws IOException, ItemNotFoundException, NullPointerException {
+        Book book = BOOK_SERVICE.get(id);
+        book.setTitle(title.equals("") ? book.getTitle() : title);
+        book.setRelease(release.equals("") ? book.getRelease() : release);
+        book.setIsbn(isbn.equals("") ? book.getIsbn() : isbn);
+        book.setAuthorName(authorName.equals("") ? book.getAuthorName() : authorName);
+        book.setType(type.equals("") ? book.getType() : type);
+        book.setPages(pages.equals("") ? book.getPages() : pages);
         BOOK_SERVICE.update(book, book.getId());
     }
+
+
 }

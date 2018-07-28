@@ -92,8 +92,12 @@ public class LibraryLauncher {
             }
 
             case EDIT_BOOK: {
+                System.out.println("It's everything we got:");
+                bookController.getAll().forEach(b -> System.out.println(b.getId() + " - " + b.getTitle()));
+
                 System.out.println("Enter ID of the book you wanna edit: ");
-                int id = sc.nextInt();
+                Long id = (long) sc.nextInt();
+                sc.nextLine();
                 System.out.println("Enter book title: ");
                 String title = sc.nextLine();
                 System.out.println("Enter book release date: ");
