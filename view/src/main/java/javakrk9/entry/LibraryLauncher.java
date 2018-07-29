@@ -50,6 +50,9 @@ public class LibraryLauncher {
                     case 7:
                         libraryEnum = LibraryEnum.RETURN_BOOK;
                         break;
+                    case 8:
+                        libraryEnum = LibraryEnum.BORROWER_CREATING;
+                        break;
                     case 0:
                         libraryEnum = LibraryEnum.EXIT;
                         break;
@@ -157,7 +160,16 @@ public class LibraryLauncher {
 
             case RETURN_BOOK: {
 
+                libraryEnum = LibraryEnum.MENU;
+                break;
             }
+
+            case BORROWER_CREATING: {
+
+                libraryEnum = LibraryEnum.MENU;
+                break;
+            }
+
         } while (libraryEnum != LibraryEnum.EXIT);
     }
 }
