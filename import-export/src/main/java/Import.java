@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Import {
 
-    private static final String FILE_NAME = "/Users/dawidvanrijswijk/OneDrive/Documents/Book3.xlsx";
+    private static final String FILE_NAME = "/Users/dawidvanrijswijk/OneDrive/Documents/codeImport.xlsx";
 
     public static void main(String[] args) {
 

@@ -12,8 +12,7 @@ public class AuthorService implements IAuthorService {
 
     private final static IAuthorRepository AUTHOR_REPOSITORY = new AuthorRepository();
 
-    public void create(Author author) throws IOException
-    {
+    public void create(Author author) throws IOException {
         AUTHOR_REPOSITORY.create(author);
     }
 
@@ -21,8 +20,7 @@ public class AuthorService implements IAuthorService {
         AUTHOR_REPOSITORY.delete(id);
     }
 
-    public List<Author> getAll() throws IOException
-    {
+    public List<Author> getAll() throws IOException {
         return AUTHOR_REPOSITORY.getAll();
     }
 
@@ -33,5 +31,4 @@ public class AuthorService implements IAuthorService {
     public void update(Author author, long id) throws IOException, AuthorNotFoundException {
         AUTHOR_REPOSITORY.update(author, id);
     }
-
 }
