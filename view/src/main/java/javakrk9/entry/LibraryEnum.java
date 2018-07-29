@@ -10,7 +10,6 @@ public enum LibraryEnum {
     ADD_AUTHOR,
     BORROW_BOOK,
     RETURN_BOOK,
-    BORROWER_CREATING,
 
     EXIT
 }
