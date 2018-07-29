@@ -4,6 +4,7 @@ import javakrk9.controllers.AuthorController;
 import javakrk9.controllers.BookController;
 import javakrk9.controllers.BorrowController;
 import javakrk9.controllers.BorrowerController;
+import javakrk9.exceptions.BorrowNotFoundException;
 import javakrk9.exceptions.ItemNotFoundException;
 import javakrk9.models.*;
 
@@ -13,7 +14,7 @@ import java.util.Scanner;
 
 public class LibraryLauncher {
 
-    public static void main(String[] args) throws IOException, ItemNotFoundException {
+    public static void main(String[] args) throws IOException, ItemNotFoundException, BorrowNotFoundException {
 
         Scanner sc = new Scanner(System.in);
         LibraryEnum libraryEnum = LibraryEnum.MENU;
@@ -159,8 +160,8 @@ public class LibraryLauncher {
                 System.out.println("All our borrowed books: ");
                 borrowController.getAll().forEach(System.out::println);
                 System.out.println("Type in ID of the book you want to return: ");
-
-
+                Long id = (long) sc.nextInt();
+                borrowController.delete(id);
                 libraryEnum = LibraryEnum.MENU;
                 break;
             }
