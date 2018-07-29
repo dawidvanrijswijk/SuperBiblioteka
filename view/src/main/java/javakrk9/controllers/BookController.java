@@ -37,5 +37,7 @@ public class BookController {
         BOOK_SERVICE.update(book, book.getId());
     }
 
-
+    public void addBorrow(Long bookId) throws IOException, ItemNotFoundException {
+        BOOK_SERVICE.addBorrow(bookId);
+    }
 }

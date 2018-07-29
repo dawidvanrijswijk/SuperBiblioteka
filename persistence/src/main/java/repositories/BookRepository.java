@@ -62,6 +62,7 @@ public class BookRepository implements IBookRepository {
             OBJECT_MAPPER.writeValue(new File(BOOKS_DB_PATH), books);
         }
     }
+
     @Override
     public void delete(Long bookId) throws IOException, ItemNotFoundException {
         List<Book> books =
@@ -74,6 +75,22 @@ public class BookRepository implements IBookRepository {
         else {
             Book bookFromDB = books.stream().filter(x -> Objects.equals(x.getId(), bookId)).findFirst().get();
             bookFromDB.setRemoved(true);
+        }
+        OBJECT_MAPPER.writeValue(new File(BOOKS_DB_PATH), books);
+    }
+
+    @Override
+    public void addBorrow(Long bookId) throws IOException, ItemNotFoundException {
+        List<Book> books =
+                OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
+                        .class));
+        Optional<Book> bookOptional = books.stream().filter(x -> Objects.equals(x.getId(), bookId)).findFirst();
+
+        if (!bookOptional.isPresent())
+            throw new ItemNotFoundException("Nie znaleziono ksiazki o id: " + bookId);
+        else {
+            Book bookFromDB = books.stream().filter(x -> Objects.equals(x.getId(), bookId)).findFirst().get();
+            bookFromDB.setBorrow(true);
         }
         OBJECT_MAPPER.writeValue(new File(BOOKS_DB_PATH), books);
     }

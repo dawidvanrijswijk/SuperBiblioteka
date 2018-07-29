@@ -37,4 +37,8 @@ public class BookService implements IBookService {
     public Book get(Long id) throws NullPointerException, IOException {
         return BOOK_REPOSITORY.get(id);
     }
+
+    public void addBorrow(Long bookId) throws IOException, ItemNotFoundException {
+        BOOK_REPOSITORY.addBorrow(bookId);
+    }
 }

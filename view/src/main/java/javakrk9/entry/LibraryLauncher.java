@@ -152,6 +152,7 @@ public class LibraryLauncher {
                 Long borrowerId = (long) sc.nextInt();
                 sc.nextLine();
                 borrowController.create(borrowId, borrowerId, LocalDate.now());
+                bookController.addBorrow(borrowId);
                 libraryEnum = LibraryEnum.MENU;
                 break;
             }
