@@ -11,6 +11,9 @@ public enum LibraryEnum {
     BORROW_BOOK,
     RETURN_BOOK,
 
+    IMPORT_BOOK,
+    EXPORT_BOOK,
+
     EXIT
 }
 

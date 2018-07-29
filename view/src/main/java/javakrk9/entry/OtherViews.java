@@ -14,6 +14,8 @@ class OtherViews {
         System.out.println("Press \"5\" to add author");
         System.out.println("Press \"6\" to hire a book");
         System.out.println("Press \"7\" to return a book");
+        System.out.println("Press \"8\" to import a book");
+        System.out.println("Press \"9\" to export a book");
         System.out.println("Press \"0\" to exit");
     }
 

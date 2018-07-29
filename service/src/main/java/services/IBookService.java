@@ -14,4 +14,5 @@ public interface IBookService {
     void update(Book author, long id) throws IOException, ItemNotFoundException;
     Book get(Long id) throws IOException;
     void addBorrow(Long bookId) throws IOException, ItemNotFoundException;
+    void importFromFile();
 }

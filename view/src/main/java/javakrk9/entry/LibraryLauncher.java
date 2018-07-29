@@ -1,5 +1,6 @@
 package javakrk9.entry;
 
+import IE.BookImport;
 import javakrk9.controllers.AuthorController;
 import javakrk9.controllers.BookController;
 import javakrk9.controllers.BorrowController;
@@ -22,6 +23,8 @@ public class LibraryLauncher {
         BookController bookController = new BookController();
         BorrowerController borrowerController = new BorrowerController();
         BorrowController borrowController = new BorrowController();
+
+        BookImport bookImport = new BookImport();
 
         OtherViews.welcomeView();
         do switch (libraryEnum) {
@@ -49,6 +52,12 @@ public class LibraryLauncher {
                         libraryEnum = LibraryEnum.BORROW_BOOK;
                         break;
                     case 7:
+                        libraryEnum = LibraryEnum.RETURN_BOOK;
+                        break;
+                    case 8:
+                        libraryEnum = LibraryEnum.RETURN_BOOK;
+                        break;
+                    case 9:
                         libraryEnum = LibraryEnum.RETURN_BOOK;
                         break;
                     case 0:
@@ -163,6 +172,18 @@ public class LibraryLauncher {
                 System.out.println("Type in ID of the book you want to return: ");
                 Long id = (long) sc.nextInt();
                 borrowController.delete(id);
+                libraryEnum = LibraryEnum.MENU;
+                break;
+            }
+
+            case IMPORT_BOOK: {
+                bookImport.parse();
+                libraryEnum = LibraryEnum.MENU;
+                break;
+            }
+
+            case EXPORT_BOOK: {
+
                 libraryEnum = LibraryEnum.MENU;
                 break;
             }

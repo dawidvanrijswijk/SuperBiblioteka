@@ -1,23 +1,19 @@
 package IE;
 
-import org.apache.poi.hssf.usermodel.HSSFSheet;
+import javakrk9.models.Book;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
-public class Import {
+public class BookExporter {
 
-    private static final String FILE_NAME = "/Users/dawidvanrijswijk/OneDrive/Documents/codeImport.xlsx";
+    private static final String FILE_NAME = "/Users/dawidvanrijswijk/OneDrive/Documents/codeExport.xlsx";
 
-    public static void main(String[] args) {
-
-
-
+    public List<Book> parse2() {
         Workbook workbook = new HSSFWorkbook();
         Sheet sheet = workbook.createSheet("Datatypes in Java");
         Object[][] datatypes = {
@@ -54,5 +50,6 @@ public class Import {
         }
 
         System.out.println("Done");
+        return null;
     }
 }
