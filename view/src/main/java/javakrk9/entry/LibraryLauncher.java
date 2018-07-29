@@ -45,7 +45,7 @@ public class LibraryLauncher {
                         libraryEnum = LibraryEnum.ADD_AUTHOR;
                         break;
                     case 6:
-                        libraryEnum = LibraryEnum.HIRE_BOOK;
+                        libraryEnum = LibraryEnum.BORROW_BOOK;
                         break;
                     case 7:
                         libraryEnum = LibraryEnum.RETURN_BOOK;
@@ -137,15 +137,17 @@ public class LibraryLauncher {
                 break;
             }
 
-            case HIRE_BOOK: {
+            case BORROW_BOOK: {
                 System.out.println("All our readers: ");
                 borrowController.getAll().forEach(System.out::println);
-                System.out.println("It's everything we've got:");
+                System.out.println("\n");
+                System.out.println("It's everything we've got: ");
                 bookController.getAll().forEach(System.out::println);
+                System.out.println("\n");
                 System.out.println("Type in Id of the book you wanna borrow");
                 Long borrowId = (long) sc.nextInt();
                 sc.nextLine();
-                System.out.println("Type in Id of you as a borrower");
+                System.out.println("Type in ID of you as a borrower");
                 Long borrowerId = (long) sc.nextInt();
                 sc.nextLine();
                 borrowController.create(borrowId, borrowerId, LocalDate.now());
@@ -154,6 +156,7 @@ public class LibraryLauncher {
             }
 
             case RETURN_BOOK: {
+
             }
         } while (libraryEnum != LibraryEnum.EXIT);
     }

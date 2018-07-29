@@ -8,8 +8,9 @@ public enum LibraryEnum {
     EDIT_BOOK,
     PRINT_ALL_BOOKS,
     ADD_AUTHOR,
-    HIRE_BOOK,
+    BORROW_BOOK,
     RETURN_BOOK,
+    BORROWER_CREATING,
 
     EXIT
 }

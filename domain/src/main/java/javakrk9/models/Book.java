@@ -31,17 +31,6 @@ public class Book {
         this.pages = pages;
     }
 
-    public Book(long id, String title, long release, long isbn, String authorName, BooksType type, Integer pages) {
-        this.id = id;
-        this.title = title;
-        this.release = release;
-        this.isbn = isbn;
-        this.authorName = authorName;
-        this.type = type;
-        this.pages = pages;
-    }
-
-
     @Override
     public String toString() {
         return "ID: " + id +
@@ -50,12 +39,6 @@ public class Book {
                 ", ISBN: " + isbn +
                 ", Author name: '" + authorName + '\'' +
                 ", Type: " + type +
-                ", Pages: " + pages +
-                ", Borrow: " + borrow +
-                ", Removed: " + removed +
-                ", Borrower name: '" + borrowerName + '\'' +
-                ", Summary: '" + summary + '\'' +
-                ", Author ID:" + authorId +
-                '}';
+                ", Pages: " + pages;
     }
 }
