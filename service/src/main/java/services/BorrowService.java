@@ -3,7 +3,9 @@ package services;
 import javakrk9.exceptions.BorrowNotFoundException;
 import javakrk9.models.Borrow;
 import repositories.BorrowRepository;
+import repositories.IBookRepository;
 import repositories.IBorrowRepository;
+import repositories.IBorrowerRepository;
 
 
 import java.io.IOException;
@@ -11,6 +13,12 @@ import java.util.List;
 
 
 public class BorrowService implements IBorrowService {
+
+//    public BorrowService(IBorrowRepository borrowRepository, IBorrowerRepository borrowerRepository, IBookRepository bookRepository) {
+//        this.borrowRepository = borrowRepository;
+//        this.borrowerReporitory = borrowerRepository;
+//        this.bookRepository = bookRepository;
+//    }
 
     private final static IBorrowRepository BORROW_REPOSITORY = new BorrowRepository();
 
