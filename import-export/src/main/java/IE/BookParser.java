@@ -1,9 +1,7 @@
 package IE;
 
 import javakrk9.models.Book;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
@@ -29,8 +27,7 @@ public class BookParser implements IBookParser {
             Row currentRow = datatypeSheet.getRow(i);
 
             Book book = new Book();
-
-            book.setTitle(currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_TITLE).getRow().getCell(i).toString());
+            book.setTitle(currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_TITLE).getStringCellValue());
             book.setRelease(currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_PUBLISH_DATE).getDateCellValue().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             book.setIsbn(currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_ISBN).getStringCellValue());
             book.setPages((int) currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_PAGES_COUNT).getNumericCellValue());

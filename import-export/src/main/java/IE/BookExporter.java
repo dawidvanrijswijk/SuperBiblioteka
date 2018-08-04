@@ -52,12 +52,10 @@ public class BookExporter implements IBookExporter {
             createCell.setCellValue(header[i]);
         }
 
-        sheet.setColumnWidth(BookXlsxDefinition.COLUMN_NUMBER_ID, 1000);
         sheet.setColumnWidth(BookXlsxDefinition.COLUMN_NUMBER_TITLE, 10000);
         sheet.setColumnWidth(BookXlsxDefinition.COLUMN_NUMBER_PUBLISH_DATE, 3500);
         sheet.setColumnWidth(BookXlsxDefinition.COLUMN_NUMBER_ISBN, 3000);
         sheet.setColumnWidth(BookXlsxDefinition.COLUMN_NUMBER_PAGES_COUNT, 3000);
-        sheet.setColumnWidth(BookXlsxDefinition.COLUMN_NUMBER_DESCRIPTION, 10000);
     }
 
     private void createStringCell(XSSFWorkbook workbook, Row row, int colNum, String value)
@@ -101,7 +99,6 @@ public class BookExporter implements IBookExporter {
                            String isbn, int pagesCount)
     {
         Row row = sheet.createRow(rowNum);
-        createNumericCell(workbook, row, BookXlsxDefinition.COLUMN_NUMBER_ID, id);
         createStringCell(workbook, row, BookXlsxDefinition.COLUMN_NUMBER_TITLE, title);
         createDateCell(workbook, row, BookXlsxDefinition.COLUMN_NUMBER_PUBLISH_DATE, publishDate);
         createStringCell(workbook, row, BookXlsxDefinition.COLUMN_NUMBER_ISBN, isbn);
@@ -116,12 +113,10 @@ public class BookExporter implements IBookExporter {
     private String[] createHeaderLabels()
     {
         String[] returnStringArray = new String[BookXlsxDefinition.COLUMN_COUNT];
-        returnStringArray[BookXlsxDefinition.COLUMN_NUMBER_ID] = BookXlsxDefinition.ID;
         returnStringArray[BookXlsxDefinition.COLUMN_NUMBER_TITLE] = BookXlsxDefinition.TITLE;
         returnStringArray[BookXlsxDefinition.COLUMN_NUMBER_PUBLISH_DATE] = BookXlsxDefinition.PUBLISH_DATE;
         returnStringArray[BookXlsxDefinition.COLUMN_NUMBER_ISBN] = BookXlsxDefinition.ISBN;
         returnStringArray[BookXlsxDefinition.COLUMN_NUMBER_PAGES_COUNT] = BookXlsxDefinition.PAGES_COUNT;
-        returnStringArray[BookXlsxDefinition.COLUMN_NUMBER_DESCRIPTION] = BookXlsxDefinition.DESCRIPTION;
 
         return returnStringArray;
     }

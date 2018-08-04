@@ -11,6 +11,7 @@ import javakrk9.models.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 public class LibraryLauncher {
@@ -178,7 +179,7 @@ public class LibraryLauncher {
 
             case IMPORT_BOOK: {
 
-                bookParser.parse("./import-export/src/main/resources/books_sample.xlsx");
+                List<Book> books = bookParser.parse("./import-export/src/main/resources/books_sample.xlsx");
                 libraryEnum = LibraryEnum.MENU;
                 break;
             }

@@ -18,4 +18,6 @@ public interface IBookRepository {
     void update(Book book, Long bookId) throws IOException, ItemNotFoundException;
 
     void addBorrow(Long bookId) throws IOException, ItemNotFoundException;
+
+    void create(List<Book> books);
 }

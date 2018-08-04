@@ -94,4 +94,9 @@ public class BookRepository implements IBookRepository {
         }
         OBJECT_MAPPER.writeValue(new File(BOOKS_DB_PATH), books);
     }
+
+    @Override
+    public void create(List<Book> books) {
+
+    }
 }
