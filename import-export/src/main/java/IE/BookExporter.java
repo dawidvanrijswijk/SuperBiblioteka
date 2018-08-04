@@ -1,9 +1,15 @@
 package IE;
 
 import javakrk9.models.Book;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.hssf.util.HSSFColor.GREY_25_PERCENT;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,12 +20,12 @@ import java.util.List;
 
 public class BookExporter implements IBookExporter {
 
+
     @Override
     public void export(List<Book> bookList, String path) throws IOException {
 
-        Workbook workbook = new Workbook() {
-        };
-        Sheet sheet = workbook.createSheet("Books");
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet("Books");
         createHeader(workbook, sheet, createHeaderLabels());
 
         int rowNum = 1;
@@ -34,10 +40,7 @@ public class BookExporter implements IBookExporter {
         outputStream.close();
     }
 
-    private void createRow(Workbook workbook, Sheet sheet, int i, Long id, String title, LocalDate release, String isbn, Integer pages) {
-    }
-
-    private void createHeader(Workbook workbook, Sheet sheet, String[] header)
+    private void createHeader(XSSFWorkbook workbook, XSSFSheet sheet, String[] header)
     {
         CellStyle cellStyle = createHeaderCellStyle(workbook);
 
@@ -57,7 +60,7 @@ public class BookExporter implements IBookExporter {
         sheet.setColumnWidth(BookXlsxDefinition.COLUMN_NUMBER_DESCRIPTION, 10000);
     }
 
-    private void createStringCell(Workbook workbook, Row row, int colNum, String value)
+    private void createStringCell(XSSFWorkbook workbook, Row row, int colNum, String value)
     {
         CellStyle cellStyle = workbook.createCellStyle();
         Cell cell = row.createCell(colNum);
@@ -65,7 +68,7 @@ public class BookExporter implements IBookExporter {
         cell.setCellStyle(cellStyle);
     }
 
-    private void createNumericCell(Workbook workbook, Row row, int colNum, Long value)
+    private void createNumericCell(XSSFWorkbook workbook, Row row, int colNum, Long value)
     {
         CellStyle cellStyle = workbook.createCellStyle();
         Cell cell = row.createCell(colNum);
@@ -73,7 +76,7 @@ public class BookExporter implements IBookExporter {
         cell.setCellStyle(cellStyle);
     }
 
-    private void createNumericCell(Workbook workbook, Row row, int colNum, int value)
+    private void createNumericCell(XSSFWorkbook workbook, Row row, int colNum, int value)
     {
         CellStyle cellStyle = workbook.createCellStyle();
         Cell cell = row.createCell(colNum);
@@ -81,7 +84,7 @@ public class BookExporter implements IBookExporter {
         cell.setCellStyle(cellStyle);
     }
 
-    private void createDateCell(Workbook workbook, Row row, int colNum, LocalDate value)
+    private void createDateCell(XSSFWorkbook workbook, Row row, int colNum, LocalDate value)
     {
         Cell cell = row.createCell(colNum);
 
@@ -94,8 +97,8 @@ public class BookExporter implements IBookExporter {
         cell.setCellStyle(cellStyle);
     }
 
-    private void createRow(Workbook workbook, Sheet sheet, int rowNum, Long id, String title, LocalDate publishDate,
-                           String isbn, int pagesCount, String description)
+    private void createRow(XSSFWorkbook workbook, XSSFSheet sheet, int rowNum, Long id, String title, LocalDate publishDate,
+                           String isbn, int pagesCount)
     {
         Row row = sheet.createRow(rowNum);
         createNumericCell(workbook, row, BookXlsxDefinition.COLUMN_NUMBER_ID, id);
@@ -103,14 +106,11 @@ public class BookExporter implements IBookExporter {
         createDateCell(workbook, row, BookXlsxDefinition.COLUMN_NUMBER_PUBLISH_DATE, publishDate);
         createStringCell(workbook, row, BookXlsxDefinition.COLUMN_NUMBER_ISBN, isbn);
         createNumericCell(workbook, row, BookXlsxDefinition.COLUMN_NUMBER_PAGES_COUNT, pagesCount);
-        createStringCell(workbook, row, BookXlsxDefinition.COLUMN_NUMBER_DESCRIPTION, description);
     }
 
-    private CellStyle createHeaderCellStyle(Workbook workbook)
+    private CellStyle createHeaderCellStyle(XSSFWorkbook workbook)
     {
-        CellStyle result = workbook.createCellStyle();
-        result.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
-        return result;
+        return workbook.createCellStyle();
     }
 
     private String[] createHeaderLabels()

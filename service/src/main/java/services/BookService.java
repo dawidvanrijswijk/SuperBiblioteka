@@ -1,6 +1,6 @@
 package services;
 
-import IE.BookImport;
+import IE.BookParser;
 import javakrk9.exceptions.ItemNotFoundException;
 import javakrk9.models.Book;
 import repositories.BookRepository;
@@ -12,7 +12,7 @@ import java.util.List;
 public class BookService implements IBookService {
 
     private IBookRepository BOOK_REPOSITORY = new BookRepository();
-    private BookImport BOOK_IMPORT = new BookImport();
+    private BookParser BOOK_PARSER = new BookParser();
 
     @Override
     public void create(Book book) throws IOException {
@@ -45,6 +45,10 @@ public class BookService implements IBookService {
     }
 
     public void importFromFile() {
-        List<Book> books = BOOK_IMPORT.parse();
+        try {
+            List<Book> books = BOOK_PARSER.parse("/Users/dawidvanrijswijk/OneDrive/Documents/codeImport.xlsx");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

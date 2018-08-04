@@ -1,6 +1,6 @@
 package javakrk9.entry;
 
-import IE.BookImport;
+import IE.BookParser;
 import javakrk9.controllers.AuthorController;
 import javakrk9.controllers.BookController;
 import javakrk9.controllers.BorrowController;
@@ -24,7 +24,7 @@ public class LibraryLauncher {
         BorrowerController borrowerController = new BorrowerController();
         BorrowController borrowController = new BorrowController();
 
-        BookImport bookImport = new BookImport();
+        BookParser bookParser = new BookParser();
 
         OtherViews.welcomeView();
         do switch (libraryEnum) {
@@ -76,9 +76,9 @@ public class LibraryLauncher {
                 System.out.println("Enter book title: ");
                 String title = sc.nextLine();
                 System.out.println("Enter book release date: ");
-                Integer releaseDate = sc.nextInt();
+                LocalDate releaseDate = LocalDate.ofEpochDay(sc.nextInt());
                 System.out.println("Enter book ISBN number: ");
-                Integer isbn = sc.nextInt();
+                String isbn = String.valueOf(sc.nextInt());
                 sc.nextLine();
                 System.out.println("Enter book author: ");
                 String authorName = sc.nextLine();
@@ -177,7 +177,7 @@ public class LibraryLauncher {
             }
 
             case IMPORT_BOOK: {
-                bookImport.parse();
+                bookParser.parse("/Users/dawidvanrijswijk/OneDrive/Documents/codeImport.xlsx");
                 libraryEnum = LibraryEnum.MENU;
                 break;
             }
