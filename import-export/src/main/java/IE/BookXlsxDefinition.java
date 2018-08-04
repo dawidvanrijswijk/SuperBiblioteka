@@ -1,11 +1,20 @@
 package IE;
 
-public class BookXlsxDefinition {
+class BookXlsxDefinition
+{
+    static final int COLUMN_NUMBER_ID = 0;
+    static final int COLUMN_NUMBER_TITLE = 1;
+    static final int COLUMN_NUMBER_PUBLISH_DATE = 2;
+    static final int COLUMN_NUMBER_ISBN = 3;
+    static final int COLUMN_NUMBER_PAGES_COUNT = 4;
+    static final int COLUMN_NUMBER_DESCRIPTION = 5;
+    static final int COLUMN_COUNT = 6;
 
-    public static final int ID_COLUMN_0 = 0;
-    public static final int TITLE_COLUMN_1 = 0;
-    public static final int RELASE_COLUMN_2 = 0;
-    public static final int ISBN_COLUMN_3 = 0;
-    public static final int AUTHOR_NAME_COLUMN_4 = 0;
-    public static final int PAGES_COLUMN_5 = 0;
+    static final String ID = "Id";
+    static final String TITLE = "Tytuł";
+    static final String PUBLISH_DATE = "Data publikacji";
+    static final String ISBN = "Isbn";
+    static final String PAGES_COUNT = "Liczba stron";
+    static final String DESCRIPTION = "Opis";
+
 }

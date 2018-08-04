@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -11,8 +13,8 @@ import lombok.Setter;
 public class Book {
     private Long id;
     private String title;
-    private Long release;
-    private Long isbn;
+    private LocalDate release;
+    private String isbn;
     private String authorName;
     private BooksType type;
     private Integer pages;
@@ -22,7 +24,7 @@ public class Book {
     private String summary;
     private Long authorId;
 
-    public Book(String title, long release, long isbn, String authorName, BooksType type, Integer pages) {
+    public Book(String title, LocalDate release, String isbn, String authorName, BooksType type, Integer pages) {
         this.title = title;
         this.release = release;
         this.isbn = isbn;
