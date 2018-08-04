@@ -46,7 +46,7 @@ public class BookService implements IBookService {
 
     public void importFromFile() {
         try {
-            List<Book> books = BOOK_PARSER.parse("/Users/dawidvanrijswijk/OneDrive/Documents/codeImport.xlsx");
+            List<Book> books = BOOK_PARSER.parse("./import-export/src/main/resources/books_sample.xlsx");
         } catch (IOException e) {
             e.printStackTrace();
         }

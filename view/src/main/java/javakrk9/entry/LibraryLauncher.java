@@ -55,10 +55,10 @@ public class LibraryLauncher {
                         libraryEnum = LibraryEnum.RETURN_BOOK;
                         break;
                     case 8:
-                        libraryEnum = LibraryEnum.RETURN_BOOK;
+                        libraryEnum = LibraryEnum.IMPORT_BOOK;
                         break;
                     case 9:
-                        libraryEnum = LibraryEnum.RETURN_BOOK;
+                        libraryEnum = LibraryEnum.EXPORT_BOOK;
                         break;
                     case 0:
                         libraryEnum = LibraryEnum.EXIT;
@@ -177,7 +177,8 @@ public class LibraryLauncher {
             }
 
             case IMPORT_BOOK: {
-                bookParser.parse("/Users/dawidvanrijswijk/OneDrive/Documents/codeImport.xlsx");
+
+                bookParser.parse("./import-export/src/main/resources/books_sample.xlsx");
                 libraryEnum = LibraryEnum.MENU;
                 break;
             }

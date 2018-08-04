@@ -1,8 +1,8 @@
-/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/persistence/src/main/java/repositories/IBookRepository.java
-/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/persistence/src/main/java/repositories/IAuthorRepository.java
-/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/persistence/src/main/java/repositories/IBorrowerRepository.java
-/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/persistence/src/main/java/repositories/AuthorRepository.java
-/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/persistence/src/main/java/repositories/BorrowRepository.java
-/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/persistence/src/main/java/repositories/BookRepository.java
-/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/persistence/src/main/java/repositories/BorrowerRepository.java
-/Users/dawidvanrijswijk/IdeaProjects/SuperBiblioteka/persistence/src/main/java/repositories/IBorrowRepository.java
+/Users/dawidvanrijswijk/IdeaProjects/Super_Biblioteka/persistence/src/main/java/repositories/IBorrowRepository.java
+/Users/dawidvanrijswijk/IdeaProjects/Super_Biblioteka/persistence/src/main/java/repositories/AuthorRepository.java
+/Users/dawidvanrijswijk/IdeaProjects/Super_Biblioteka/persistence/src/main/java/repositories/BorrowerRepository.java
+/Users/dawidvanrijswijk/IdeaProjects/Super_Biblioteka/persistence/src/main/java/repositories/IBorrowerRepository.java
+/Users/dawidvanrijswijk/IdeaProjects/Super_Biblioteka/persistence/src/main/java/repositories/BookRepository.java
+/Users/dawidvanrijswijk/IdeaProjects/Super_Biblioteka/persistence/src/main/java/repositories/IBookRepository.java
+/Users/dawidvanrijswijk/IdeaProjects/Super_Biblioteka/persistence/src/main/java/repositories/IAuthorRepository.java
+/Users/dawidvanrijswijk/IdeaProjects/Super_Biblioteka/persistence/src/main/java/repositories/BorrowRepository.java

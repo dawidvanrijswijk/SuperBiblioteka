@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.ZoneId;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,11 +24,13 @@ public class BookParser implements IBookParser {
         Workbook workbook = new XSSFWorkbook(excelFile);
         Sheet datatypeSheet = workbook.getSheetAt(0);
 
-        for (Row currentRow : datatypeSheet) {
+        for (int i = 1; i <= datatypeSheet.getLastRowNum(); i++) {
+
+            Row currentRow = datatypeSheet.getRow(i);
 
             Book book = new Book();
 
-            book.setTitle(currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_TITLE).getStringCellValue());
+            book.setTitle(currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_TITLE).getRow().getCell(i).toString());
             book.setRelease(currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_PUBLISH_DATE).getDateCellValue().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             book.setIsbn(currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_ISBN).getStringCellValue());
             book.setPages((int) currentRow.getCell(BookXlsxDefinition.COLUMN_NUMBER_PAGES_COUNT).getNumericCellValue());
