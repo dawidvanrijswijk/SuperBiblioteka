@@ -19,5 +19,5 @@ public interface IBookRepository {
 
     void addBorrow(Long bookId) throws IOException, ItemNotFoundException;
 
-    void create(List<Book> books);
+    void createList(List<Book> books);
 }

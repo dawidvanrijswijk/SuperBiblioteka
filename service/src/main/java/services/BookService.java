@@ -47,7 +47,7 @@ public class BookService implements IBookService {
     public void importFromFile() {
         try {
             List<Book> books = BOOK_PARSER.parse("./import-export/src/main/resources/books_sample.xlsx");
-            BOOK_REPOSITORY.create(books);
+            BOOK_REPOSITORY.create((Book) books);
         } catch (IOException e) {
             e.printStackTrace();
         }

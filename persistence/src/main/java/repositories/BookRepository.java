@@ -96,7 +96,18 @@ public class BookRepository implements IBookRepository {
     }
 
     @Override
-    public void create(List<Book> books) {
-
+    public void createList(List<Book> books) {
+        try {
+            OBJECT_MAPPER.readValue(new File(BOOKS_DB_PATH), OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Book
+                    .class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        books.add((Book) books);
+        try {
+            OBJECT_MAPPER.writeValue(new File(BOOKS_DB_PATH), books);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
